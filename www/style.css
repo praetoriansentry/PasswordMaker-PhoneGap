@@ -1,0 +1,39 @@
+.formlabel{
+    width:100%;
+}
+.formele{
+    width:100%;
+    margin-bottom:0.5em;
+}
+.formele input{
+    width:90%;
+    font-size:120%;
+}
+.formele select{
+    width:90%;
+    font-size:120%;
+}
+form {
+    padding:0.25em;
+}
+body {
+    margin:0;
+}
+
+
+.genform {
+    background: rgba(255, 255, 255, 0.9);
+    background:-moz-linear-gradient(90deg, #fff, #eee); /* Firefox */
+    background:-webkit-gradient(linear, left top, left bottom, from(#eee), to(#fff), color-stop(0.2, #fff)); /* Webkit */
+    border:1px solid #aaa;
+    -webkit-border-radius:3px;
+    -webkit-box-shadow:0 0 3px #aaa;
+    padding:5px;
+    width:100%;
+}
+.genform:focus{
+    border-color:#093c75;
+    -webkit-box-shadow:0 0 3px #0459b7;
+    outline:none; /* Pour enlever le contour jaune lorsque l'on sélectionne un input dans Chrome */
+}
+

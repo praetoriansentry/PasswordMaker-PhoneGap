@@ -1,0 +1,220 @@
+<!DOCTYPE HTML>
+<html class="mobile">
+    <head>
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,minimum-scale=1,user-scalable=no"/>
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <title>Password Maker</title>
+    <link href="dojo-release-1.6.1-src/dojox/mobile/themes/iphone/iphone.css" rel="stylesheet"></link>
+    <link href="dojo-release-1.6.1-src/dojox/mobile/themes/buttons.css" rel="stylesheet"></link>
+    <link href="dojo-release-1.6.1-src/dojox/mobile/themes/domButtons.css" rel="stylesheet"></link>
+    <link href="style.css" rel="stylesheet"></link>
+
+    <script src="dojo-release-1.6.1-src/dojo/dojo.js" type="text/javascript" djConfig="isDebug:true, parseOnLoad:true"></script>
+    <script type="text/javascript" charset="utf-8" src="phonegap-1.1.0.js"></script>
+    <script type="text/javascript" charset="utf-8" src="lib.js"></script>
+    <script type="text/javascript" charset="utf-8" src="app.js"></script>
+ 
+    <!-- stylesheet will go here -->
+ 
+    <!-- dojo/javascript will go here -->
+ 
+    </head>
+    <body class="mobile">
+    <!-- application will go here -->
+
+    <div id="profilepage" dojoType="dojox.mobile.View" selected="true">
+        <h1 dojoType="dojox.mobile.Heading">
+            <div id="editbutton" dojoType="dojox.mobile.ToolBarButton" style="padding: 0px 14px" moveTo="editpage" transition="flip">Edit</div>
+            <div dojoType="dojox.mobile.ToolBarButton" class="mblDomButton mblDomButtonPlus_2" style="float:right;" moveTo="createprofile"></div>
+            Profiles
+        </h1>
+        <ul id="profilelist" dojoType="dojox.mobile.RoundRectList">
+            <!--<li id="testing" dojoType="dojox.mobile.ListItem" moveTo="getpassword">
+                Default*
+            </li>-->
+        </ul>
+    </div>
+
+    <div id="editpage" dojoType="dojox.mobile.View" selected="false">
+        <h1 dojoType="dojox.mobile.Heading">
+            <div id="doneediting" dojoType="dojox.mobile.ToolBarButton" label="Done" class="mblColorBlue" style="width:45px;float:right;" moveTo="profilepage" transition="flip"></div>
+            Remove Profiles
+        </h1>
+        <ul id="editprofilelist" dojoType="dojox.mobile.RoundRectList">
+        </ul>
+    </div>
+
+
+
+
+    <div id="getpassword" dojoType="dojox.mobile.View" selected="false">
+        <h1 dojoType="dojox.mobile.Heading" back="Profile" moveTo="profilepage">
+            <div id="profileinfo" dojoType="dojox.mobile.ToolBarButton" icon="dojo-release-1.6.1-src/dojox/mobile/tests/images/a-icon-12.png" style="float:right;" moveTo="createprofile"></div>
+            Generate Password
+        </h1>
+        <div style="padding-left:5px; padding-right:15px;">
+            <label for="generationurl">URL:</label><br>
+            <input type="text" id="generationurl" class="genform"><br>
+            <label for="masterpassword">Password</label><br>
+            <input type="password" id="masterpassword" class="genform">
+            <h3>Generated Password</h3>
+            <div id="passworddisplay" dojoType="dojox.mobile.RoundRect" shadow="true">
+                dsafjoisdf
+            </div>
+            <!-- might have to use phone gap for this
+            <div id="copypassword" dojoType="dojox.mobile.Button" style="width:125px;text-align:center;">
+                Copy Password
+            </div>
+            -->
+        </div>
+    </div>
+
+
+
+    <div id="createprofile" dojoType="dojox.mobile.View" selected="false">
+        <h1 dojoType="dojox.mobile.Heading" back="Profiles" moveTo="profilepage" fixed="top">
+            <div id="doneprofile" dojoType="dojox.mobile.ToolBarButton" label="Done" class="mblColorBlue" style="width:45px;float:right;"></div>
+            Create Profile
+        </h1>
+        <div dojoType="dojox.mobile.RoundRect" shadow="true">
+            <div>
+                <div class="formlabel">
+                    <label for="profileName">Profile Name:</label>
+                </div>
+                <div class="formele">
+                    <input id="profileName" type="text" placeholder="Name of this profile">
+                </div>
+            </div>
+
+            <div>
+                <div class="formlabel">
+                    <label for="charset">Charset:</label>
+                </div>
+                <div class="formele">
+                    <select id="charset" name="charset">
+                        <option value='0'>Alphanumeric with symbols</option>
+                        <option value='1'>Alphanumeric</option>
+                        <option value='2'>Hexadecimal</option>
+                        <option value='3'>Decimal</option>
+                        <option value='4'>Letters only</option>
+                        <option value='5'>Symbols only</option>
+                    </select>
+                </div>
+            </div>
+
+            <div>
+                <div class="formlabel">
+                    <label for="hashalgo">Algorithm:</label>
+                </div>
+
+                <div class="formele">
+                    <select id="hashalgo">
+                        <option value="md4">MD4</option>
+                        <option value="hmac-md4">HMAC-MD4</option>
+                        <option value="md5">MD5</option>
+                        <option value="md5_v6">MD5 Version 0.6</option>
+                        <option value="hmac-md5">HMAC-MD5</option>
+                        <option value="hmac-md5_v6">HMAC-MD5 Version 0.6</option>
+                        <option value="sha1">SHA-1</option>
+                        <option value="hmac-sha1">HMAC-SHA-1</option>
+                        <option value="sha256">SHA-256</option>
+                        <option value="hmac-sha256_fix">HMAC-SHA-256</option>
+                        <option value="hmac-sha256">HMAC-SHA-256 Version 1.5.1</option>
+                        <option value="rmd160">RIPEMD-160</option>
+                        <option value="hmac-rmd160">HMAC-RIPEMD-160</option>
+                    </select>
+                </div>
+            </div>
+
+            <div>
+                <div class="formlabel">
+                    <label for="passlength">Password Length:</label>
+                </div>
+                <div class="formele">
+                    <input type="number" id="passlength" min=5 step=1 value=8>
+                </div>
+            </div>
+
+            <div>
+                <div class="formlabel">
+                    <label for="username">Username:</label>
+                </div>
+                <div class="formele">
+                    <input type="text" id="username">
+                </div>
+            </div>
+        </div>
+        <div dojoType="dojox.mobile.RoundRect" shadow="true">
+            <div>
+                <div class="formlabel">
+                    <label for="whereleet">Leet:</label>
+                </div>
+                <div class="formele">
+                    <select id="whereleet">
+                        <option value="off">not at all</option>
+                        <option value="before-hashing">before generating password</option>
+                        <option value="after-hashing">after generating password</option>
+                        <option value="both">before and after generating password</option>
+                    </select>
+                </div>
+            </div>
+
+            <div>
+                <div class="formlabel">
+                    <label for="leetlevel">Leet Level:</label>
+                </div>
+                <div class="formele">
+                    <select id="leetlevel" >
+                        <option value="0">0</option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                        <option value="6">6</option>
+                        <option value="7">7</option>
+                        <option value="8">8</option>
+                        <option value="9">9</option>
+                    </select>
+                </div>
+            </div>
+
+            <div>
+                <div class="formlabel">
+                    <label for="prefix">Prefix:</label>
+                </div>
+                <div class="formele">
+                    <input id="prefix" type="text">
+                </div>
+            </div>
+
+            <div>
+                <div class="formlabel">
+                    <label for="suffix">Suffix:</label>
+                </div>
+                <div class="formele">
+                    <input id="suffix" type="text">
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+
+
+
+
+
+
+
+    <script type="text/javascript">
+    // Load the widget parser
+    dojo.require("dojox.mobile.parser");
+    // Load the base lib
+    dojo.require("dojox.mobile");
+    // This might not be necessary since we're in phone gap
+    //dojo.requireIf(!dojo.isWebKit, "dojox.mobile.compat");
+    dojo.require("dojox.mobile.ScrollableView");
+    </script>
+    </body>
+</html>

@@ -33,6 +33,7 @@
 		9F1706B01447DAEB00DED066 /* Capture.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 9F1706AF1447DAEB00DED066 /* Capture.bundle */; };
 		9F1706B21447DAEB00DED066 /* PhoneGap.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9F1706B11447DAEB00DED066 /* PhoneGap.plist */; };
 		9F1706B61447DAEB00DED066 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F1706B51447DAEB00DED066 /* AppDelegate.m */; };
+		9F1706BF1447DB0D00DED066 /* www in Resources */ = {isa = PBXBuildFile; fileRef = 9F1706BE1447DB0D00DED066 /* www */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -50,10 +51,10 @@
 		9F1706891447DAEB00DED066 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		9F17068B1447DAEB00DED066 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
 		9F17068D1447DAEB00DED066 /* CoreMedia.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMedia.framework; path = System/Library/Frameworks/CoreMedia.framework; sourceTree = SDKROOT; };
-		9F1706911447DAEB00DED066 /* Password Maker-Info.plist */ = {isa = PBXFileReference; path = "Password Maker-Info.plist"; sourceTree = "<group>"; };
+		9F1706911447DAEB00DED066 /* Password Maker-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Password Maker-Info.plist"; sourceTree = "<group>"; };
 		9F1706931447DAEB00DED066 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		9F1706951447DAEB00DED066 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		9F1706971447DAEB00DED066 /* Password Maker-Prefix.pch */ = {isa = PBXFileReference; path = "Password Maker-Prefix.pch"; sourceTree = "<group>"; };
+		9F1706971447DAEB00DED066 /* Password Maker-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Password Maker-Prefix.pch"; sourceTree = "<group>"; };
 		9F1706981447DAEB00DED066 /* PhoneGap.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = PhoneGap.framework; path = /Users/Shared/PhoneGap/Frameworks/PhoneGap.framework; sourceTree = "<absolute>"; };
 		9F17069D1447DAEB00DED066 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = Resources/en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		9F1706A11447DAEB00DED066 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = Resources/es.lproj/Localizable.strings; sourceTree = "<group>"; };
@@ -64,9 +65,10 @@
 		9F1706AD1447DAEB00DED066 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default@2x.png"; path = "Resources/splash/Default@2x.png"; sourceTree = "<group>"; };
 		9F1706AF1447DAEB00DED066 /* Capture.bundle */ = {isa = PBXFileReference; lastKnownFileType = text; name = Capture.bundle; path = Resources/Capture.bundle; sourceTree = "<group>"; };
 		9F1706B11447DAEB00DED066 /* PhoneGap.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = PhoneGap.plist; sourceTree = "<group>"; };
-		9F1706B41447DAEB00DED066 /* AppDelegate.h */ = {isa = PBXFileReference; name = AppDelegate.h; path = Classes/AppDelegate.h; sourceTree = "<group>"; };
+		9F1706B41447DAEB00DED066 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = Classes/AppDelegate.h; sourceTree = "<group>"; };
 		9F1706B51447DAEB00DED066 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = AppDelegate.m; path = Classes/AppDelegate.m; sourceTree = "<group>"; };
-		9F1706B81447DAEB00DED066 /* README */ = {isa = PBXFileReference; name = README; path = Plugins/README; sourceTree = "<group>"; };
+		9F1706B81447DAEB00DED066 /* README */ = {isa = PBXFileReference; lastKnownFileType = text; name = README; path = Plugins/README; sourceTree = "<group>"; };
+		9F1706BE1447DB0D00DED066 /* www */ = {isa = PBXFileReference; lastKnownFileType = folder; path = www; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -104,6 +106,7 @@
 		9F1706631447DAEB00DED066 = {
 			isa = PBXGroup;
 			children = (
+				9F1706BE1447DB0D00DED066 /* www */,
 				9F17068F1447DAEB00DED066 /* Password Maker */,
 				9F1706741447DAEB00DED066 /* Frameworks */,
 				9F1706721447DAEB00DED066 /* Products */,
@@ -290,6 +293,7 @@
 				9F1706AE1447DAEB00DED066 /* Default@2x.png in Resources */,
 				9F1706B01447DAEB00DED066 /* Capture.bundle in Resources */,
 				9F1706B21447DAEB00DED066 /* PhoneGap.plist in Resources */,
+				9F1706BF1447DB0D00DED066 /* www in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
