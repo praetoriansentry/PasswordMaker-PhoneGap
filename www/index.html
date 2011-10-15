@@ -20,8 +20,8 @@
  
     </head>
     <body class="mobile">
-    <!-- application will go here -->
 
+    <!-- Main list of profiles-->
     <div id="profilepage" dojoType="dojox.mobile.View" selected="true">
         <h1 dojoType="dojox.mobile.Heading">
             <div id="editbutton" dojoType="dojox.mobile.ToolBarButton" style="padding: 0px 14px" moveTo="editpage" transition="flip">Edit</div>
@@ -29,12 +29,10 @@
             Profiles
         </h1>
         <ul id="profilelist" dojoType="dojox.mobile.RoundRectList">
-            <!--<li id="testing" dojoType="dojox.mobile.ListItem" moveTo="getpassword">
-                Default*
-            </li>-->
         </ul>
     </div>
 
+    <!-- The page for deleting profiles -->
     <div id="editpage" dojoType="dojox.mobile.View" selected="false">
         <h1 dojoType="dojox.mobile.Heading">
             <div id="doneediting" dojoType="dojox.mobile.ToolBarButton" label="Done" class="mblColorBlue" style="width:45px;float:right;" moveTo="profilepage" transition="flip"></div>
@@ -44,9 +42,7 @@
         </ul>
     </div>
 
-
-
-
+    <!-- This is the page where you actually generate a password -->
     <div id="getpassword" dojoType="dojox.mobile.View" selected="false">
         <h1 dojoType="dojox.mobile.Heading" back="Profile" moveTo="profilepage">
             <div id="profileinfo" dojoType="dojox.mobile.ToolBarButton" icon="dojo-release-1.6.1-src/dojox/mobile/tests/images/a-icon-12.png" style="float:right;" moveTo="createprofile"></div>
@@ -61,16 +57,18 @@
             <div id="passworddisplay" dojoType="dojox.mobile.RoundRect" shadow="true">
                 dsafjoisdf
             </div>
-            <!-- might have to use phone gap for this
+            <!-- Ideally we should be able to copy the password right into the
+            clipboard, but it seems like a clumbsy process.  Probably tie in
+            through phone gap if we can get that working. TODO
             <div id="copypassword" dojoType="dojox.mobile.Button" style="width:125px;text-align:center;">
                 Copy Password
             </div>
             -->
         </div>
     </div>
-
-
-
+    
+    <!-- This is the page with all of the profile detaisl.  It can be created
+    or edited from this page-->
     <div id="createprofile" dojoType="dojox.mobile.View" selected="false">
         <h1 dojoType="dojox.mobile.Heading" back="Profiles" moveTo="profilepage" fixed="top">
             <div id="doneprofile" dojoType="dojox.mobile.ToolBarButton" label="Done" class="mblColorBlue" style="width:45px;float:right;"></div>
@@ -202,19 +200,11 @@
 
 
 
-
-
-
-
-
     <script type="text/javascript">
     // Load the widget parser
     dojo.require("dojox.mobile.parser");
     // Load the base lib
     dojo.require("dojox.mobile");
-    // This might not be necessary since we're in phone gap
-    //dojo.requireIf(!dojo.isWebKit, "dojox.mobile.compat");
-    dojo.require("dojox.mobile.ScrollableView");
     </script>
     </body>
 </html>
