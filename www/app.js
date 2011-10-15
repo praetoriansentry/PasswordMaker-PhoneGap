@@ -1,18 +1,33 @@
+// Hiding all of my code behind this pwm namespace
 var pwm;
 if(!pwm){
     pwm = {};
 }
 (function(){
-    pwm.defaultProfile = {
-    };
+    // This will be a profile object for whatever is currently active
     pwm.activeProfile;
+    /**
+     * This is used to map the values from the charset drop down to actual
+     * charsets
+     */
+    pwm.charMap = [
+        'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789`~!@#$%^&*()_-+={}|[]\\:";\'<>?,./',
+        'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789',
+        '0123456789abcdef',
+        '0123456789',
+        'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz',
+        '`~!@#$%^&*()_-+={}|[]\\:";\'<>?,./'
+    ];
+    /**
+     * Default hook when the program starts
+     */
     pwm.init = function(){
-        pwm.getRequires();
         pwm.loadProfiles();
         pwm.attachListeners();
     };
-    pwm.getRequires = function(){
-    };
+    /**
+     * All of the static action listeners should be attached here
+     */
     pwm.attachListeners = function(){
         dojo.connect(dojo.byId('doneprofile'), 'onclick',null,function(evt){
             pwm.buildProfile();
@@ -20,11 +35,6 @@ if(!pwm){
         dojo.connect(dojo.byId('editbutton'), 'onclick', null, function(evt){
             pwm.populateEdit();
         });
-        /*
-        dojo.connect(dijit.byId('copypassword'), 'onClick', null, function(evt){
-            console.log('foo');
-        });
-        */
         dojo.connect(dojo.byId('generationurl'), 'onkeyup', null, function(evt){
             pwm.generatePass();
         });
@@ -35,14 +45,10 @@ if(!pwm){
             pwm.showProfile();
         });
     };
-    pwm.charMap = [
-        'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789`~!@#$%^&*()_-+={}|[]\\:";\'<>?,./',
-        'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789',
-        '0123456789abcdef',
-        '0123456789',
-        'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz',
-        '`~!@#$%^&*()_-+={}|[]\\:";\'<>?,./'
-    ];
+    /**
+     * This gets all of the profiles out of local storage an draws them into 
+     * the main window
+     */
     pwm.loadProfiles = function(){
         var profiles = pwm.getProfiles();
         for(prof in profiles){
@@ -51,17 +57,21 @@ if(!pwm){
             }
         }
     };
+    /**
+     * This method is responsible for generating passwords.  I'm calling it
+     * whenever the user types something into the fields
+     */
     pwm.generatePass = function(){
         var profile;
         if(pwm.activeProfile){
             profile = pwm.activeProfile;
         }else{
-            profile = pwm.defaultProfile;
+            throw new Error('No active profile selected');
         }
         var pw = generatepassword(
             profile.hashalgo,
             dojo.byId('masterpassword').value,
-            dojo.trim(dojo.byId('generationurl').value.toLowerCase()) + profile.username,
+            dojo.trim(dojo.byId('generationurl').value.toLowerCase()) + profile.username.toLowerCase(),
             profile.whereleet,
             profile.leetlevel,
             profile.passlen,
@@ -71,6 +81,10 @@ if(!pwm){
         );
         dojo.byId('passworddisplay').innerHTML = pw.substring(0,profile.passlen);
     };
+    /**
+     * When the user goes to the edit page, the can see their profiles and
+     * remove them one at a time.  This code allows for that
+     */
     pwm.populateEdit = function(){
         var profiles = pwm.getProfiles();
         dojo.empty('editprofilelist');
@@ -91,6 +105,10 @@ if(!pwm){
             }
         }
     };
+    /**
+     * after a user fills out a new profile, this function creats the object,
+     * validates the fields and saves the information
+     */
     pwm.buildProfile = function(){
         var name = dojo.byId('profileName').value,
             charset = dojo.byId('charset').value,
@@ -135,10 +153,17 @@ if(!pwm){
         pwm.insertProfileToDOM(profile);
         dijit.byId('doneprofile').transitionTo('profilepage');
     };
+    /**
+     * Simple method to delete a method from memory and local storage
+     */
     pwm.removeProfile = function(profile){
         delete pwm.profiles[profile.name];
         localStorage.profiles = JSON.stringify(pwm.profiles);
     };
+    /**
+     * Simpel method that takes a profile and sticks it into the list of
+     * profiles
+     */
     pwm.insertProfileToDOM = function(profile){
         var thing = new dojox.mobile.ListItem({
             moveTo:'getpassword',
@@ -149,10 +174,17 @@ if(!pwm){
         dojo.place(thing.domNode,dojo.byId('profilelist'));
         dojo.connect(thing, 'onClick', {profile:profile},pwm.setupGenerator);
     };
+    /**
+     * When a profile is selected, this code sets up listeners for the new
+     * profile
+     */
     pwm.setupGenerator = function(){
         pwm.activeProfile = this.profile;
-        console.log(this.profile);
     };
+
+    /**
+     * Fetch the list of profiles
+     */
     pwm.getProfiles = function(){
         // already exists... return
         if(pwm.profiles){
@@ -167,12 +199,21 @@ if(!pwm){
         pwm.profiles = JSON.parse(localStorage.profiles);
         return pwm.profiles;
     };
+
+    /**
+     * Add a new profile
+     */
     pwm.addProfile = function(profile){
         var profileSet = pwm.getProfiles();
         profileSet[profile.name] = profile;
         localStorage.profiles = JSON.stringify(profileSet);
         pwm.profiles = profileSet;
     };
+
+    /**
+     * this method populates all of the fields in the edit view so that the
+     * user can view/edit their profile
+     */
     pwm.showProfile = function(){
         var profile = pwm.activeProfile;
         dojo.attr('profileName', 'value', profile.name);
