@@ -68,7 +68,7 @@ if(!pwm){
         }else{
             throw new Error('No active profile selected');
         }
-        var pw = generatepassword(
+        var pw = pwm.generatepassword(
             profile.hashalgo,
             dojo.byId('masterpassword').value,
             dojo.trim(dojo.byId('generationurl').value.toLowerCase()) + profile.username.toLowerCase(),

@@ -1,3 +1,9 @@
+// This code is taken from the password maker example site
+var pwm;
+if(!pwm){
+    pwm = {};
+}
+(function(){
 // scripts/aes.js
 
 /* rijndael.js      Rijndael Reference Implementation
@@ -2069,4 +2075,7 @@ if (typeof(PasswordMaker_HashUtils) != "object") {
   }
 }
 
+// export this function to the pwm namespace
+pwm.generatepassword = generatepassword;
 
+})();
