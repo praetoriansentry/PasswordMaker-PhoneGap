@@ -133,6 +133,11 @@ if(!pwm){
         //Check to make sure there is a name
         if( dojo.trim(profile.name).length == 0 ){
             alert('Please Provide A User Name');
+            navigator.notification.alert(
+                'Please Provide A User Name',
+                pwm.noOp,
+                'Ok'
+            );
             return;
         }
         //Check to see if the name is in use already
@@ -226,7 +231,17 @@ if(!pwm){
         dojo.attr('prefix', 'value', profile.prefix);
         dojo.attr('suffix', 'value', profile.suffix);
     };
+
+    pwm.noOp = function(){
+        return this;
+    };
 })();
 dojo.ready(function(evt){
+    if(localStorage.debug){
+        pwm.init();
+    }
+});
+dojo.connect(document,'deviceready',null,function(){
     pwm.init();
 });
+

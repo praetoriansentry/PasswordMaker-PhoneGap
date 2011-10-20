@@ -24,6 +24,8 @@
 	<array/>
 	<key>Plugins</key>
 	<dict>
+		<key>Prompt</key>
+		<string>Prompt</string>
 		<key>com.phonegap.accelerometer</key>
 		<string>PGAccelerometer</string>
 		<key>com.phonegap.camera</key>
