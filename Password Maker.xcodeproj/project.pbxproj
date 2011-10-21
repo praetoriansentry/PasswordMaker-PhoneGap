@@ -34,7 +34,7 @@
 		9F1706B21447DAEB00DED066 /* PhoneGap.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9F1706B11447DAEB00DED066 /* PhoneGap.plist */; };
 		9F1706B61447DAEB00DED066 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F1706B51447DAEB00DED066 /* AppDelegate.m */; };
 		9F1706BF1447DB0D00DED066 /* www in Resources */ = {isa = PBXBuildFile; fileRef = 9F1706BE1447DB0D00DED066 /* www */; };
-		9FA5C7BF1450805400B674DB /* View.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9FA5C7BE1450805400B674DB /* View.xib */; };
+		9F26FC2B1451069F00503697 /* ClipboardPlugin.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F26FC2A1451069F00503697 /* ClipboardPlugin.m */; };
 		9FA5C7C5145085D100B674DB /* Prompt.m in Sources */ = {isa = PBXBuildFile; fileRef = 9FA5C7C4145085D100B674DB /* Prompt.m */; };
 /* End PBXBuildFile section */
 
@@ -71,7 +71,8 @@
 		9F1706B51447DAEB00DED066 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = AppDelegate.m; path = Classes/AppDelegate.m; sourceTree = "<group>"; };
 		9F1706B81447DAEB00DED066 /* README */ = {isa = PBXFileReference; lastKnownFileType = text; name = README; path = Plugins/README; sourceTree = "<group>"; };
 		9F1706BE1447DB0D00DED066 /* www */ = {isa = PBXFileReference; lastKnownFileType = folder; path = www; sourceTree = "<group>"; };
-		9FA5C7BE1450805400B674DB /* View.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = View.xib; sourceTree = "<group>"; };
+		9F26FC291451068100503697 /* ClipboardPlugin.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ClipboardPlugin.h; sourceTree = "<group>"; };
+		9F26FC2A1451069F00503697 /* ClipboardPlugin.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ClipboardPlugin.m; sourceTree = "<group>"; };
 		9FA5C7C4145085D100B674DB /* Prompt.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Prompt.m; sourceTree = "<group>"; };
 		9FA5C7C7145085EA00B674DB /* Prompt.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Prompt.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -222,7 +223,6 @@
 			children = (
 				9F1706B41447DAEB00DED066 /* AppDelegate.h */,
 				9F1706B51447DAEB00DED066 /* AppDelegate.m */,
-				9FA5C7BE1450805400B674DB /* View.xib */,
 			);
 			name = Classes;
 			sourceTree = "<group>";
@@ -233,6 +233,8 @@
 				9F1706B81447DAEB00DED066 /* README */,
 				9FA5C7C4145085D100B674DB /* Prompt.m */,
 				9FA5C7C7145085EA00B674DB /* Prompt.h */,
+				9F26FC291451068100503697 /* ClipboardPlugin.h */,
+				9F26FC2A1451069F00503697 /* ClipboardPlugin.m */,
 			);
 			name = Plugins;
 			sourceTree = "<group>";
@@ -302,7 +304,6 @@
 				9F1706B01447DAEB00DED066 /* Capture.bundle in Resources */,
 				9F1706B21447DAEB00DED066 /* PhoneGap.plist in Resources */,
 				9F1706BF1447DB0D00DED066 /* www in Resources */,
-				9FA5C7BF1450805400B674DB /* View.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -332,6 +333,7 @@
 				9F1706961447DAEB00DED066 /* main.m in Sources */,
 				9F1706B61447DAEB00DED066 /* AppDelegate.m in Sources */,
 				9FA5C7C5145085D100B674DB /* Prompt.m in Sources */,
+				9F26FC2B1451069F00503697 /* ClipboardPlugin.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

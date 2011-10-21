@@ -24,6 +24,8 @@
 	<array/>
 	<key>Plugins</key>
 	<dict>
+		<key>ClipboardPlugin</key>
+		<string>ClipboardPlugin</string>
 		<key>Prompt</key>
 		<string>Prompt</string>
 		<key>com.phonegap.accelerometer</key>

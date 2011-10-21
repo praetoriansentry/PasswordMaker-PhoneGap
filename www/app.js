@@ -6,6 +6,8 @@ if(!pwm){
 (function(){
     // This will be a profile object for whatever is currently active
     pwm.activeProfile;
+    // This is the currently active password... used for setting the clipboard
+    pwm.curPassword;
     /**
      * This is used to map the values from the charset drop down to actual
      * charsets
@@ -44,6 +46,9 @@ if(!pwm){
         dojo.connect(dijit.byId('profileinfo'), 'onClick', null, function(evt){
             pwm.showProfile();
         });
+        dojo.connect(dijit.byId('copypassword'), 'onClick', null, function(evt){
+            pwm.copyPassword();
+        });
     };
     /**
      * This gets all of the profiles out of local storage an draws them into 
@@ -56,6 +61,14 @@ if(!pwm){
                 pwm.insertProfileToDOM(profiles[prof]);
             }
         }
+    };
+    pwm.copyPassword = function(){
+        if(localStorage.isBrowser){
+            console.warn('Copy does not work in browser');
+            return;
+        }
+        var c = new pwm.ClipboardPlugin();
+        c.setText(pwm.curPassword);
     };
     /**
      * This method is responsible for generating passwords.  I'm calling it
@@ -79,7 +92,8 @@ if(!pwm){
             profile.prefix,
             profile.suffix
         );
-        dojo.byId('passworddisplay').innerHTML = pw.substring(0,profile.passlen);
+        pwm.curPassword = pw.substring(0,profile.passlen);
+        dojo.byId('passworddisplay').innerHTML = pwm.curPassword;
     };
     /**
      * When the user goes to the edit page, the can see their profiles and
@@ -237,7 +251,7 @@ if(!pwm){
     };
 })();
 dojo.ready(function(evt){
-    if(localStorage.debug){
+    if(localStorage.isBrowser){
         pwm.init();
     }
 });
