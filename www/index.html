@@ -3,6 +3,7 @@
     <head>
     <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,minimum-scale=1,user-scalable=no"/>
     <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
     <title>Password Maker</title>
     <link href="dojo-release-1.6.1-src/dojox/mobile/themes/iphone/iphone.css" rel="stylesheet"></link>
     <link href="dojo-release-1.6.1-src/dojox/mobile/themes/buttons.css" rel="stylesheet"></link>
@@ -52,7 +53,7 @@
         </h1>
         <div style="padding-left:5px; padding-right:15px;">
             <label for="generationurl">URL:</label><br>
-            <input type="text" id="generationurl" class="genform"><br>
+            <input type="text" id="generationurl" class="genform" autocapitalize="off" autocorrect="off"><br>
             <label for="masterpassword">Password</label><br>
             <input type="password" id="masterpassword" class="genform">
             <h3>Generated Password</h3>
@@ -63,7 +64,7 @@
             clipboard, but it seems like a clumbsy process.  Probably tie in
             through phone gap if we can get that working. TODO
             -->
-            <div id="copypassword" dojoType="dojox.mobile.Button" style="width:125px;text-align:center;">
+            <div id="copypassword" dojoType="dojox.mobile.Button" style="width:125px;text-align:center;margin:0 auto;">
                 Copy Password
             </div>
         </div>
