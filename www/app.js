@@ -146,7 +146,6 @@ if(!pwm){
         };
         //Check to make sure there is a name
         if( dojo.trim(profile.name).length == 0 ){
-            alert('Please Provide A User Name');
             navigator.notification.alert(
                 'Please Provide A User Name',
                 pwm.noOp,

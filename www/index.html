@@ -6,21 +6,18 @@
     <meta name="apple-mobile-web-app-status-bar-style" content="black" />
     <title>Password Maker</title>
     <link href="dojo-release-1.6.1-src/dojox/mobile/themes/iphone/iphone.css" rel="stylesheet"></link>
+    <!--<link href="dojo-release-1.6.1-src/dojox/mobile/themes/android/android.css" rel="stylesheet"></link>-->
     <link href="dojo-release-1.6.1-src/dojox/mobile/themes/buttons.css" rel="stylesheet"></link>
     <link href="dojo-release-1.6.1-src/dojox/mobile/themes/domButtons.css" rel="stylesheet"></link>
     <link href="style.css" rel="stylesheet"></link>
-
     <script src="dojo-release-1.6.1-src/dojo/dojo.js" type="text/javascript" djConfig="isDebug:true, parseOnLoad:true"></script>
     <script type="text/javascript" charset="utf-8" src="phonegap-1.1.0.js"></script>
     <script type="text/javascript" charset="utf-8" src="lib.js"></script>
     <script type="text/javascript" charset="utf-8" src="app.js"></script>
     <script type="text/javascript" charset="utf-8" src="plugins/Prompt.js"></script>
     <script type="text/javascript" charset="utf-8" src="plugins/ClipboardPlugin.js"></script>
- 
     <!-- stylesheet will go here -->
- 
     <!-- dojo/javascript will go here -->
- 
     </head>
     <body class="mobile">
 
@@ -53,7 +50,7 @@
         </h1>
         <div style="padding-left:5px; padding-right:15px;">
             <label for="generationurl">URL:</label><br>
-            <input type="text" id="generationurl" class="genform" autocapitalize="off" autocorrect="off"><br>
+            <input type="url" id="generationurl" class="genform" autocapitalize="off" autocorrect="off"><br>
             <label for="masterpassword">Password</label><br>
             <input type="password" id="masterpassword" class="genform">
             <h3>Generated Password</h3>
@@ -69,7 +66,7 @@
             </div>
         </div>
     </div>
-    
+
     <!-- This is the page with all of the profile detaisl.  It can be created
     or edited from this page-->
     <div id="createprofile" dojoType="dojox.mobile.ScrollableView" selected="false">
@@ -83,7 +80,7 @@
                     <label for="profileName">Profile Name:</label>
                 </div>
                 <div class="formele">
-                    <input id="profileName" type="text" placeholder="Name of this profile">
+                    <input id="profileName" type="text" placeholder="Name of this profile" autocapitalize="off" autocorrect="off">
                 </div>
             </div>
 
